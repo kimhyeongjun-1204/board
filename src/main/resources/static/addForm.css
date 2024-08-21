@@ -12,9 +12,7 @@ h1 {
 
 
 /* 버튼 css  */
-button {
-    position: relative;
-    right: -555px;
+.button {
     width: 100px;
     height: 50px;
     border: 2.5px solid gray;
@@ -25,17 +23,27 @@ button {
     font-size: 1.2rem;
 }
 
-button:before {
+.button:before {
     height: 0%;
     width: 2px;
 }
 
-button:hover {
+.button:hover {
     box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
     -4px -4px 6px 0 rgba(116, 125, 136, .5),
     inset -4px -4px 6px 0 rgba(255,255,255,.2),
     inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }
+
+#home_btn {
+    position: relative;
+    right:-20%
+}
+
+#submit_btn {
+
+}
+
 
 /* 테이블 설정 */
 
