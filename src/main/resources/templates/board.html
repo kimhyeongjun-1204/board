@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" media="screen" href="/board.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="title" th:text="${board.title}"> 제목 </div>
+
+        <div class="else">
+            <div class="wrap-author">
+                <span class="label" id="l-author"> 작성자 : </span>
+                <span class="author" th:text="${board.author}"> 작성자 </span>
+            </div>
+
+            <div class="wrap-date">
+                <span class="label" id="l-date"> 등록일 : </span>
+                <span class="date" th:text="${board.createdAt}"> 등록일 </span>
+            </div>
+
+            <div class="button">
+                <button class="button" th:onclick="|location.href='@{/}'|"> 홈으로 </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="label" id="l-content"> 내용 </div>
+        <div class="contents" th:text="${board.contents}"> 내용 </div>
+    </div>
+
+</div>
+
+</body>
+</html>

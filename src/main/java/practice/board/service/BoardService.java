@@ -19,7 +19,7 @@ public class BoardService {
     @Transactional( readOnly = true) // 조회용 메소드 표시
     public List<BoardResponseDto> getPosts() {
         // toList : dto -> List로 변환
-        return boardRepository.findAllByOrderByModifiedAtDesc().stream().map(BoardResponseDto::new).toList();
+        return boardRepository.findAllByOrderByModifiedAtAsc().stream().map(BoardResponseDto::new).toList();
     }
 
     // 요청이 저장된 board 객체 다시 리턴
@@ -30,6 +30,7 @@ public class BoardService {
         return new BoardResponseDto(board);
     }
 
+    // 특정 게시글 조회
     @Transactional
     public BoardResponseDto getPost(Long id) {
         return boardRepository.findById(id).map(BoardResponseDto::new).orElseThrow(
@@ -66,4 +67,10 @@ public class BoardService {
         return new SuccessResponseDto(true);
     }
 
+    /* 게시물 전체 삭제 */
+    @Transactional
+    public SuccessResponseDto deleteAll() {
+        boardRepository.deleteAll();
+        return new SuccessResponseDto(true);
+    }
 }

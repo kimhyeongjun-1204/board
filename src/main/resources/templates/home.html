@@ -1,14 +1,54 @@
-<!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" media="screen" href="/home.css" />
+    <script type="text/javascript" th:src="@{/home.js}"></script>
 </head>
 <body>
-<h1>게시물 목록</h1>
-<ul>
-    <li th:each="post : ${posts}" th:text="${post.title}"></li>
-</ul>
+
+<div class="container">
+    <div class="py-5 text-center">
+<!--                   # : 메시지 파일(properties) -->
+        <h1 id="title">글 목록</h1>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button class="btn"
+                    th:onclick="|location.href='@{/api/post}'|"
+                    >글 등록</button>
+            <button class="btn"
+                    type="button"
+                    onclick="deleteAll()">모든 글 삭제</button>
+        </div>
+    </div>
+
+    <hr class="my-4">
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>등록일</th>
+                <th>수정일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="board : ${boards}">                                                  <!--서버측 변수 -->
+                <td><a href="board.html" th:href="@{/api/post/{id}(id=${board.id})}" th:text="${board.id}">글 ID</a></td>
+                <td><a href="board.html" th:href="@{/api/post/{id}(id=${board.id})}" th:text="${board.title}">제목</a></td>
+                <td th:text="${board.author}">작성자</td>
+                <td th:text="${board.createdAt}">등록일</td>
+                <td th:text="${board.modifiedAt}">수정일</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div> <!-- /container -->
+
 </body>
 </html>

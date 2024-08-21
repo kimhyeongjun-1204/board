@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.board.entity.Board;
 
-import java.time.LocalDateTime;
-
 @Getter
 @NoArgsConstructor
 public class BoardResponseDto {
@@ -13,8 +11,8 @@ public class BoardResponseDto {
     private String title;
     private String contents;
     private String author;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
+    private String createdAt;
+    private String modifiedAt;
 
     public BoardResponseDto(Board entity) {
         this.id = entity.getId();

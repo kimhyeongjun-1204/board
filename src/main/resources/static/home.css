@@ -1,0 +1,44 @@
+.container {
+    text-align: center;
+}
+
+
+.btn {
+    width: 80px;
+    height: 60px;
+    position: relative;
+    left: -40px;
+    margin-bottom: 30px;
+    font-size: 17px;
+    float: right;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    float: left;
+    margin: 0 0 10em;
+    thead {
+        border-bottom: 3px solid gray;
+        th {
+            padding: 0.35em 0 .35em;
+            font-weight: 400;
+            font-size: 1.25em;
+        }
+
+    }
+
+    tbody {
+        border-bottom: 3px solid gray;
+        tr {
+            border-bottom: 2px solid #ddd;
+
+            td {
+                padding: .75em 0;
+                }
+        }
+    }
+
+}

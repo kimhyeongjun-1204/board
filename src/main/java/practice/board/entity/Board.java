@@ -1,7 +1,6 @@
 package practice.board.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,8 +21,10 @@ public class Board extends Timestamped {
 
     // 기본키를 자동으로 생성해줌
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false)
     private Long id;
+
 
     @Column(nullable = false)
     private String title;
@@ -38,7 +39,6 @@ public class Board extends Timestamped {
     private String password;
 
     //생성일시, 수정일시는 상속받아 사용함
-
     public void update(BoardRequestsDto requestsDto) {
         this.title = requestsDto.getTitle();
         this.contents = requestsDto.getContent();
